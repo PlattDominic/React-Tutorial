@@ -15,7 +15,7 @@ function App() {
         <p>{ ["html", "css", "react"] }</p>
         <p>{ Math.random() * 50 }</p>
 
-        <a href={ link } target="_blank">React Site</a>
+        <a href={ link } target="_blank" rel='noreferrer'>React Site</a>
       </div>
     </div>
   );
