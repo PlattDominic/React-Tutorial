@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const title = 'Welcome to the new react site!';
+  const dislikes = 20;
+  const link = 'https://reactjs.org/';
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="content">
+        <h1>{ title }</h1>
+        <p>Dislikes { dislikes } times</p>
+
+        <p>{ "Hello there" }</p>
+        <p>{ ["html", "css", "react"] }</p>
+        <p>{ Math.random() * 50 }</p>
+
+        <a href={ link } target="_blank">React Site</a>
+      </div>
     </div>
   );
 }
