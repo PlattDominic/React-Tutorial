@@ -9,7 +9,9 @@ const useFetch = (url) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch(url)
+        const abortCont = new AbortController();
+
+        fetch(url, { signal: abortCont.signal }) 
             .then(res => {
                 if (!res.ok) {
                     throw Error('Failed to fetch blogs');
@@ -17,14 +19,21 @@ const useFetch = (url) => {
                 return res.json()
             })
             .then((data) => {
-                setData(data);
                 setIsPending(false);
+                setData(data);
                 setError(null);
             })
             .catch(err => {
-                setIsPending(false);
-                setError(err.message);
+                if (err.name === 'AbortError') {
+                    console.log('fetch aborted')
+                } else {
+                    // auto catches network / connection error
+                    setIsPending(false);
+                    setError(err.message);
+                }
             })
+
+        return () => abortCont.abort()
     }, [url]);
 
     return { data, isPending, error };

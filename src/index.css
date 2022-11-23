@@ -8,7 +8,7 @@
 }
 .navbar {
   padding: 20px;
-  display: flex;
+  display: fjlex;
   align-items: center;
   max-width: 600px;
   margin: 0 auto;
@@ -47,4 +47,7 @@
 .blog-preview h2 {
   font-size: 20px;
   color: #f1356d;
+}
+.blog-preview a {
+  text-decoration: none;
 }
